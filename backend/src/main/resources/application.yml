@@ -1,0 +1,33 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/hospital_reim?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update   # 开发期使用，生产建议使用迁移工具
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc.time_zone: Asia/Shanghai
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 25MB
+
+app:
+  jwt:
+    secret: "change-this-to-a-long-random-secret-please"
+    expireHours: 8
+  upload-dir: ./data/uploads
+  allow-origins: http://localhost:5173,http://localhost:8081
+
+logging:
+  level:
+    org.springframework.security: INFO
+    com.hospital.reim: DEBUG
