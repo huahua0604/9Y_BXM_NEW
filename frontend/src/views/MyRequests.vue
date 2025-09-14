@@ -1,6 +1,6 @@
 <template>
   <div style="display:grid; gap:16px;">
-    <RequestForm @created="goDetail" />
+    <!-- <RequestForm @created="goDetail" /> -->
 
     <div class="card">
       <div class="header">

@@ -3,6 +3,7 @@
     <div style="max-width:980px;margin:0 auto;padding:10px 12px;display:flex;align-items:center;gap:16px;">
       <strong style="letter-spacing:0.5px;">医院科内报销平台</strong>
       <router-link to="/my" style="color:#fff;">我的报销</router-link>
+      <router-link to="/request/new" style="color:#fff;">新建报销</router-link>
       <router-link v-if="hasRole('REVIEWER') || hasRole('ADMIN')" to="/review" style="color:#fff;">审核队列</router-link>
       <router-link v-if="hasRole('REVIEWER') || hasRole('ADMIN')" to="/review/my-approvals" style="color:#fff;">我的审批记录</router-link>
       <div style="margin-left:auto;display:flex;align-items:center;gap:10px;">

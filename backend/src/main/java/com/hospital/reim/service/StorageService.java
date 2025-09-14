@@ -101,7 +101,9 @@ public class StorageService {
     private static final Set<String> ALLOWED_TYPES = Set.of(
             "application/pdf",
             "image/jpeg",
-            "image/png"
+            "image/png",
+            "image/jpg",
+            "image/bmp"
             // 如需放开更多： "image/gif", "image/heic"
     );
 

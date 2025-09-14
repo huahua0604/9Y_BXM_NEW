@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <div class="header"><h3>上传报销凭证(PDF)</h3></div>
+    <div class="header"><h3>上传报销凭证(PDF等)</h3></div>
     <input ref="fileRef" type="file" accept="application/pdf,image/*" @change="onFile" />
     <div style="margin-top:10px;">
       <button class="btn" :disabled="!file || uploading" @click="upload">上传</button>

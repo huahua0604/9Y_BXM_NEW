@@ -8,7 +8,8 @@ const routes = [
   { path: '/my', name: 'my', component: () => import('../views/MyRequests.vue') },
   { path: '/request/:id', name: 'detail', component: () => import('../views/RequestDetail.vue') },
   { path: '/review', name: 'review', component: () => import('../views/ReviewQueue.vue'), meta: { roles: ['REVIEWER','ADMIN'] } },
-  { path: '/review/my-approvals', name: 'MyApprovals', component: () => import('@/views/MyApprovals.vue'), meta: { requiresAuth: true, roles: ['REVIEWER', 'ADMIN'], title: '我的审批记录' }}
+  { path: '/review/my-approvals', name: 'MyApprovals', component: () => import('@/views/MyApprovals.vue'), meta: { requiresAuth: true, roles: ['REVIEWER', 'ADMIN'], title: '我的审批记录' }},
+  { path: '/request/new', name: 'new-request', component: () => import('../views/NewRequest.vue') },
 ]
 
 const router = createRouter({ history: createWebHistory(), routes })
