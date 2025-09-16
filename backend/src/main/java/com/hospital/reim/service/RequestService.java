@@ -18,7 +18,6 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Service
@@ -31,6 +30,7 @@ public class RequestService {
     private final RequestHistoryRepository historyRepo;
     private final StorageService storageService;
     private final UserService userService;
+    private final BalanceService balanceService;
 
     public List<RequestListItemDto> listMy(String employeeId) {
         User me = userRepo.findByEmployeeId(employeeId).orElseThrow();
@@ -130,10 +130,18 @@ public class RequestService {
         User reviewer = userRepo.findByEmployeeId(reviewerEmpId).orElseThrow();
         if (!userService.hasReviewer(reviewerEmpId)) throw new AccessDeniedException("无权限");
         if (r.getStatus() != RequestStatus.SUBMITTED) throw new BadRequestException("当前状态不可通过");
+        
+        balanceService.deductForApproval(reviewer, r);
+
         r.setStatus(RequestStatus.APPROVED);
         r.setReviewedAt(LocalDateTime.now());
         requestRepo.save(r);
-        saveHistory(r, reviewer, RequestAction.APPROVE, note);
+        RequestHistory h = new RequestHistory();
+        h.setRequest(r);
+        h.setActor(reviewer);
+        h.setAction(RequestAction.APPROVE);
+        h.setNote(note);
+        historyRepo.save(h);
     }
 
     @Transactional

@@ -8,7 +8,7 @@
       </div>
       <div>
         <label>新密码</label>
-        <input class="input" type="password" v-model.trim="newPassword" minlength="8" required />
+        <input class="input" type="password" placeholder="密码长度需大于8位" v-model.trim="newPassword" minlength="8" required />
       </div>
       <button class="btn" :disabled="loading">保存</button>
     </form>

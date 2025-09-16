@@ -6,6 +6,8 @@
       <router-link to="/request/new" style="color:#fff;">新建报销</router-link>
       <router-link v-if="hasRole('REVIEWER') || hasRole('ADMIN')" to="/review" style="color:#fff;">审核队列</router-link>
       <router-link v-if="hasRole('REVIEWER') || hasRole('ADMIN')" to="/review/my-approvals" style="color:#fff;">我的审批记录</router-link>
+      <router-link v-if="hasRole('ADMIN')" to="/admin/users" style="color:#fff;">用户管理</router-link>
+      <router-link v-if="hasRole('ADMIN')" to="/admin/balance" style="color:#fff;">资金管理</router-link>
       <div style="margin-left:auto;display:flex;align-items:center;gap:10px;">
         <span v-if="name">👋 {{ name }}</span>
         <button v-if="isAuthed" class="btn outline" @click="onLogout">退出</button>

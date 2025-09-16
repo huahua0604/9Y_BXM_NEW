@@ -167,7 +167,7 @@ input:focus, select:focus, textarea:focus{
 }
 
 .actions{ margin-top:16px; display:flex; gap:10px; }
-.btn{ padding:9px 14px; border:1px solid #d1d5db; border-radius:8px; background:#f8fafc; cursor:pointer; }
+.btn{ padding:9px 14px; border:1px solid #fff; border-radius:8px; background:#2563eb; cursor:pointer; }
 .btn:hover{ background:#eef2ff; }
 .btn.primary{ background:#2563eb; color:#fff; border-color:#2563eb; }
 .btn.primary[disabled]{ opacity:.6; cursor:not-allowed; }

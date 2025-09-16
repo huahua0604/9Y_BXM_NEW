@@ -29,6 +29,6 @@ public class Attachment {
     private String sha256;
     private LocalDateTime uploadedAt;
 
-    @PrePersist
-    public void prePersist() { uploadedAt = LocalDateTime.now(); }
+    @Column(nullable = false)
+    private LocalDateTime occurredAt;
 }

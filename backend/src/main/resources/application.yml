@@ -10,7 +10,7 @@ spring:
     password: a20020604
   jpa:
     hibernate:
-      ddl-auto: update   # 开发期使用，生产建议使用迁移工具
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true

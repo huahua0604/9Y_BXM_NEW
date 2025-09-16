@@ -10,6 +10,9 @@ const routes = [
   { path: '/review', name: 'review', component: () => import('../views/ReviewQueue.vue'), meta: { roles: ['REVIEWER','ADMIN'] } },
   { path: '/review/my-approvals', name: 'MyApprovals', component: () => import('@/views/MyApprovals.vue'), meta: { requiresAuth: true, roles: ['REVIEWER', 'ADMIN'], title: '我的审批记录' }},
   { path: '/request/new', name: 'new-request', component: () => import('../views/NewRequest.vue') },
+  { path: '/admin/users', name: 'admin-users', component: () => import('../views/Users.vue'), meta: { roles: ['ADMIN'] } },
+  { path: '/admin/balance', name: 'admin-balance', component: () => import('@/views/AdminBalance.vue'), meta: { roles: ['ADMIN'] } }
+
 ]
 
 const router = createRouter({ history: createWebHistory(), routes })
